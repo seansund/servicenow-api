@@ -16,7 +16,7 @@ export class ChangeRequestMock implements ChangeRequestApi {
   changeRequests: ChangeRequest[] = [];
 
   get logger() {
-    return this._logger.child('ChabgeRequestMock');
+    return this._logger.child('ChangeRequestMock');
   }
 
   async createChangeRequest(templateId: string, type: 'standard' | 'normal', values: any): Promise<ChangeRequest> {

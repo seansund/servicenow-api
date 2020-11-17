@@ -26,7 +26,7 @@ export class GithubReviewService implements GithubReviewApi {
       .set({'User-Agent': 'ServiceNow mock'})
       .accept('application/vnd.github.v3+json')
       .auth(GIT_USER, GITHUB_TOKEN)
-      .send({event: 'PENDING'});
+      .send({});
 
     const {id} = result.body;
 
