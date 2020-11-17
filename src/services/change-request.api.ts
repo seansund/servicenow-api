@@ -1,16 +1,12 @@
 import {GET, PATCH, PathParam} from 'typescript-rest';
+import {ChangeRequest} from '../models/change-request.model';
+import {ChangeRequestApproval} from '../models/change-request-approval.model';
 
-export class ChangeRequestApi {
+export abstract class ChangeRequestApi {
 
-  async createStandardChangeRequest(templateId: string) {
+  async abstract createChangeRequest(templateId: string, type: 'standard' | 'normal', values: any): Promise<ChangeRequest>;
 
-  }
+  async abstract getChangeRequest(sysId: string): Promise<ChangeRequest>;
 
-  async getStandardChangeRequest(sysId: string) {
-
-  }
-
-  async approveRejectChangeRequest(sysId: string) {
-
-  }
+  async abstract approveRejectChangeRequest(sysId: string, approval: ChangeRequestApproval): Promise<ChangeRequest>;
 }
