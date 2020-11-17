@@ -29,7 +29,7 @@ export class ChangeRequestMock implements ChangeRequestApi {
 
         changeRequest.reviewUrl = reviewUrl;
       } catch (err) {
-        this.logger.error('Error creating review in Git', {error: err, errorMessage: err.message});
+        this.logger.error('Error creating review in Git: ' + err.message, {error: err, errorMessage: err.message});
       }
     }
 
