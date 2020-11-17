@@ -38,6 +38,10 @@ export class ChangeRequestMock implements ChangeRequestApi {
     return changeRequest;
   }
 
+  async getChangeRequests(): Promise<ChangeRequest[]> {
+    return this.changeRequests;
+  }
+
   async getChangeRequest(sysId: string): Promise<ChangeRequest> {
     const results: ChangeRequest[] = this.changeRequests.filter(val => val.sysId === sysId);
 

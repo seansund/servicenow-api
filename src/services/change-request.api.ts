@@ -6,6 +6,8 @@ export abstract class ChangeRequestApi {
 
   async abstract createChangeRequest(templateId: string, type: 'standard' | 'normal', values: any): Promise<ChangeRequest>;
 
+  async abstract getChangeRequests(): Promise<ChangeRequest[]>;
+
   async abstract getChangeRequest(sysId: string): Promise<ChangeRequest>;
 
   async abstract approveRejectChangeRequest(sysId: string, approval: ChangeRequestApproval): Promise<ChangeRequest>;

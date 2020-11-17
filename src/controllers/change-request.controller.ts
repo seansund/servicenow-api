@@ -21,6 +21,12 @@ export class ChangeRequestController {
     return this.service.getChangeRequest(sysId);
   }
 
+  @GET
+  @Path('standard')
+  async listStandardChangeRequests() {
+    return this.service.getChangeRequests();
+  }
+
   @PATCH
   @Path(':sysId/approvals')
   async approveRejectChangeRequest(@PathParam('sysId') sysId: string, approval: ChangeRequestApproval): Promise<ChangeRequest> {
