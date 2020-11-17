@@ -1,4 +1,4 @@
-import {GET, PATCH, Path, PathParam, POST} from 'typescript-rest';
+import {Context, GET, PATCH, Path, PathParam, POST, ServiceContext} from 'typescript-rest';
 import {Inject} from 'typescript-ioc';
 import {ChangeRequestApi} from '../services/change-request.api';
 import {ChangeRequestApproval} from '../models/change-request-approval.model';
@@ -11,21 +11,19 @@ export class ChangeRequestController {
 
   @POST
   @Path('standard/:templateId')
-  async createStandardChangeRequest(@Context context: ServiceContext, @PathParam('templateId') templateId: string) {
-    const queryParams = context.request.query;
-
-    return this.service.createChangeRequest(templateId, 'standard', queryParams);
+  async createStandardChangeRequest(@PathParam('templateId') templateId: string, values: any) {
+    return this.service.createChangeRequest(templateId, 'standard', values);
   }
 
   @GET
   @Path('standard/:sysId')
   async getStandardChangeRequest(@PathParam('sysId') sysId: string) {
-    return this.getChangeRequest(sysId);
+    return this.service.getChangeRequest(sysId);
   }
 
   @PATCH
   @Path(':sysId/approvals')
   async approveRejectChangeRequest(@PathParam('sysId') sysId: string, approval: ChangeRequestApproval): Promise<ChangeRequest> {
-    return this.approveRejectChangeRequest(sysId, approval);
+    return this.service.approveRejectChangeRequest(sysId, approval);
   }
 }
