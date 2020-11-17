@@ -57,7 +57,7 @@ export class GithubReviewService implements GithubReviewApi {
 
   async addLabels(changeRequest: ChangeRequest, labels: string[]) {
 
-    const url = `${changeRequest.pullRequestUrl}/labels`;
+    const url = `${changeRequest.pullRequestUrl}/labels`.replace('/pulls/', '/issues/');
 
     this.logger.info('Creating label: ' + url, {changeRequest, labels});
 
