@@ -11,31 +11,31 @@ class ChildLogger extends LoggerApi {
     super();
   }
 
-  error(message: any, args: any): void {
+  error(message: any, args?: any): void {
     this.logger.error(args, message);
   }
 
-  log(message: any, args: any): void {
+  log(message: any, args?: any): void {
     this.info(args, message);
   }
 
-  debug(message: any, args: any): void {
+  debug(message: any, args?: any): void {
     this.logger.debug(args, message);
   }
 
-  info(message: any, args: any): void {
+  info(message: any, args?: any): void {
     this.logger.info(args, message);
   }
 
-  warn(message: any, args: any): void {
+  warn(message: any, args?: any): void {
     this.logger.warn(args, message);
   }
 
-  fatal(message: any, args: any): void {
+  fatal(message: any, args?: any): void {
     this.logger.fatal(args, message);
   }
 
-  trace(message: any, args: any): void {
+  trace(message: any, args?: any): void {
     this.logger.trace(args, message);
   }
 
