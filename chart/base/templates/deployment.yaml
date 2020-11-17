@@ -61,6 +61,16 @@ spec:
                   fieldPath: metadata.name
             - name: LOG_LEVEL
               value: {{ .Values.logLevel | quote }}
+            - name: GITHUB_USER
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: git-credentials
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: git-credentials
           envFrom:
             - configMapRef:
                 name: {{ default "jaeger-config" .Values.jaegerConfigName }}
