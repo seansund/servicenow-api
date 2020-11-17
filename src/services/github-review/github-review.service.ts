@@ -47,7 +47,7 @@ export class GithubReviewService implements GithubReviewApi {
       });
 
     try {
-      await addLabels(changeRequest, ['approved']);
+      await this.addLabels(changeRequest, ['approved']);
     } catch (err) {
       this.logger.error('Error adding labels', {error: err, errorMessage: err.message});
     }
