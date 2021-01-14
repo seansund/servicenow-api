@@ -69,4 +69,13 @@ export class ChangeRequestMock implements ChangeRequestApi {
 
     return changeRequest;
   }
+
+  async updateChangeRequest(sysId: string, updates: ChangeRequest): Promise<ChangeRequest> {
+    const changeRequest: ChangeRequest = await this.getChangeRequest(sysId);
+
+    Object.assign(changeRequest, updates);
+
+    return changeRequest;
+  }
+
 }
